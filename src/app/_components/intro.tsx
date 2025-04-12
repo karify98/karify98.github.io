@@ -10,17 +10,18 @@ export function Intro() {
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
               Hi, my name is{" "}
-              <span className="text-blue-600 dark:text-blue-400">Karify98</span>
+              <span className="text-blue-600 dark:text-blue-400">Hi, I’m Nam Nguyen (aka Karify98)</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              I build scalable and efficient backend systems.
+            The guy who loves clean code, smart systems, caffeine ☕️, and the occasional beer 🍺
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400">
-              Backend engineering, AI automation, and DevOps specialist focused on creating robust and maintainable solutions.
+            I build reliable backend systems, automate workflows with AI, and keep everything running smooth with a touch of DevOps magic.
+            Let’s make tech simpler (and a lot more fun) 🚀
             </p>
             <div className="flex gap-4">
               <Link
-                href="/blog"
+                href="/blogs"
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Read My Blog
@@ -36,7 +37,7 @@ export function Intro() {
           
           {/* Right side - Profile Image */}
           <div className="relative aspect-square w-full max-w-md mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg transform rotate-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-lg transform rotate-3"></div>
             <div className="relative aspect-square rounded-lg overflow-hidden border-4 border-yellow-500/20">
               <Image
                 src="/images/profile.jpg"
