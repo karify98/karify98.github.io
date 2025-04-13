@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
+import { type Author } from "@/interfaces/author";
 
 type Props = {
   title: string;
@@ -8,6 +9,7 @@ type Props = {
   date: string;
   excerpt: string;
   slug: string;
+  author: Author;
 };
 
 export function PostPreview({
@@ -16,6 +18,7 @@ export function PostPreview({
   date,
   excerpt,
   slug,
+  author,
 }: Props) {
   return (
     <article className="group">
