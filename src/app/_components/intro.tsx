@@ -10,14 +10,14 @@ export function Intro() {
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
               Hi, my name is{" "}
-              <span className="text-blue-600 dark:text-blue-400">Hi, I’m Nam Nguyen (aka Karify98)</span>
+              <span className="text-blue-600 dark:text-blue-400">Hi, I'm Nam Nguyen (aka Karify98)</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-            The guy who loves clean code, smart systems, caffeine ☕️, and the occasional beer 🍺
+              The guy who loves clean code, smart systems, caffeine ☕️, and the occasional beer 🍺
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400">
-            I build reliable backend systems, automate workflows with AI, and keep everything running smooth with a touch of DevOps magic.
-            Let’s make tech simpler (and a lot more fun) 🚀
+              I build reliable backend systems, automate workflows with AI, and keep everything running smooth with a touch of DevOps magic.
+              Let's make tech simpler (and a lot more fun) 🚀
             </p>
             <div className="flex gap-4">
               <Link
@@ -27,14 +27,14 @@ export function Intro() {
                 Read My Blog
               </Link>
               <Link
-                href="/work"
-                className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                href="/experience"
+                className="px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
                 View My Work
               </Link>
             </div>
           </div>
-          
+
           {/* Right side - Profile Image */}
           <div className="relative aspect-square w-full max-w-md mx-auto">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-lg transform rotate-3"></div>
