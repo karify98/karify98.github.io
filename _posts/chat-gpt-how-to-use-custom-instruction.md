@@ -168,8 +168,8 @@ So why wait? Dive in, set up your Custom Instructions, and start enjoying a more
 
 ## Additional Resources
 
-- [OpenAI Custom Instructions Guide](https://help.openai.com/en/articles/6783453-chatgpt-custom-instructions)
-- [ChatGPT Best Practices](https://help.openai.com/en/articles/6783453-chatgpt-best-practices)
+- [OpenAI Custom Instructions Guide](https://openai.com/index/custom-instructions-for-chatgpt/)
+- [ChatGPT Best Practices](https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt)
 
 Have you tried Custom Instructions yet? Share your experience in the comments below!
 If you found this post helpful, consider sharing it with your network. Let's make AI work better for everyone!
