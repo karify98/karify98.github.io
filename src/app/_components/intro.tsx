@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function Intro() {
+import type { Dictionary } from "@/lib/dictionaries";
+
+type IntroProps = {
+  messages: Dictionary["intro"];
+};
+
+export function Intro({ messages }: IntroProps) {
   return (
     <section className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4">
@@ -9,28 +15,22 @@ export function Intro() {
           {/* Left side - Content */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
-              Hi, my name is{" "}
-              <span className="text-blue-600 dark:text-blue-400">Hi, I'm Nam Nguyen (aka Karify98)</span>
+              <span className="text-blue-600 dark:text-blue-400">{messages.greeting}</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              The guy who loves clean code, smart systems, caffeine ☕️, and the occasional beer 🍺
-            </p>
-            <p className="text-lg text-gray-500 dark:text-gray-400">
-              I build reliable backend systems, automate workflows with AI, and keep everything running smooth with a touch of DevOps magic.
-              Let's make tech simpler (and a lot more fun) 🚀
-            </p>
+            <p className="text-xl text-gray-600 dark:text-gray-300">{messages.tagline}</p>
+            <p className="text-lg text-gray-500 dark:text-gray-400">{messages.description}</p>
             <div className="flex gap-4">
               <Link
                 href="/blogs"
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Read My Blog
+                {messages.ctas.blog}
               </Link>
               <Link
                 href="/experience"
                 className="px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
-                View My Work
+                {messages.ctas.work}
               </Link>
             </div>
           </div>

@@ -1,26 +1,15 @@
-import { Footer } from "@/app/_components/footer";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
-import { ThemeSwitcher } from "./_components/theme-switcher";
+import type { ReactNode } from "react";
 
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: `Karify98 - Backend Engineer & Technical Content Creator`,
-  description: `Personal portfolio of Karify98, a backend engineer and technical content creator specializing in scalable systems, AI automation, and DevOps.`,
-  openGraph: {
-    images: [HOME_OG_IMAGE_URL],
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -61,9 +50,7 @@ export default function RootLayout({
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
-        <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
-        <Footer />
       </body>
     </html>
   );

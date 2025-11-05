@@ -3,31 +3,41 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Experience', href: '/experience' },
-  { name: 'Blog', href: '/blogs' },
-  { name: 'Contact', href: '/contact' },
-];
+import { LanguageSwitcher } from '@/app/_components/language-switcher';
+import type { Dictionary } from '@/lib/dictionaries';
+import type { Locale } from '@/lib/locales';
 
-export function Header() {
+type HeaderProps = {
+  locale: Locale;
+  messages: Dictionary['header'];
+};
+
+export function Header({ locale, messages }: HeaderProps) {
   const pathname = usePathname();
+  const normalizedPath = normalizePath(pathname, locale);
+
+  const navigation = [
+    { name: messages.navigation.home, href: '/' },
+    { name: messages.navigation.about, href: '/about' },
+    { name: messages.navigation.experience, href: '/experience' },
+    { name: messages.navigation.blog, href: '/blogs' },
+    { name: messages.navigation.contact, href: '/contact' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-blue-900 dark:text-blue-400">
-          Karify98
+          {messages.brand}
         </Link>
-        
+
         <div className="hidden md:flex items-center space-x-8">
           {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.href}
               href={item.href}
               className={`text-sm font-medium transition-colors ${
-                pathname === item.href
+                normalizedPath === item.href
                   ? 'text-blue-600 dark:text-blue-400'
                   : 'text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400'
               }`}
@@ -37,13 +47,31 @@ export function Header() {
           ))}
         </div>
 
-        {/* Mobile menu button */}
-        <button className="md:hidden text-gray-600 dark:text-gray-300">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher
+            currentLocale={locale}
+            labels={{
+              label: messages.language.label,
+              en: messages.language.en,
+              vi: messages.language.vi,
+            }}
+          />
+          <button className="md:hidden text-gray-600 dark:text-gray-300" aria-label="Toggle navigation">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </nav>
     </header>
   );
+}
+
+function normalizePath(pathname: string | null, locale: Locale) {
+  if (!pathname) {
+    return '/';
+  }
+
+  const withoutLocale = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), '') || '/';
+  return withoutLocale === '' ? '/' : withoutLocale;
 }
