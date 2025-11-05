@@ -2,14 +2,18 @@
 
 import Link from 'next/link';
 
-export function Footer() {
+import type { Dictionary } from '@/lib/dictionaries';
+
+type FooterProps = {
+  messages: Dictionary['footer'];
+};
+
+export function Footer({ messages }: FooterProps) {
   return (
     <footer className="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center text-center">
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Thanks for visiting my digital space ✨
-          </p>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">{messages.thankYou}</p>
           
           <div className="flex space-x-6 mb-8">
             {/* GitHub */}
@@ -51,8 +55,8 @@ export function Footer() {
           </div>
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            <p className="mb-2">© 2025 Karify98. Built with Next.js and Tailwind CSS.</p>
-            <p>Crafted by Karify98</p>
+            <p className="mb-2">{messages.copyright}</p>
+            <p>{messages.crafted}</p>
           </div>
         </div>
       </div>
