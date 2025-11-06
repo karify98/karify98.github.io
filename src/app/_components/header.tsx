@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { LanguageSwitcher } from '@/app/_components/language-switcher';
 import type { Dictionary } from '@/lib/dictionaries';
 import type { Locale } from '@/lib/locales';
+import { buildLocalizedPath, stripLocaleFromPath } from '@/lib/paths';
 
 type HeaderProps = {
   locale: Locale;
@@ -14,37 +15,40 @@ type HeaderProps = {
 
 export function Header({ locale, messages }: HeaderProps) {
   const pathname = usePathname();
-  const normalizedPath = normalizePath(pathname, locale);
+  const normalizedPath = stripLocaleFromPath(pathname ?? '/');
 
   const navigation = [
-    { name: messages.navigation.home, href: '/' },
-    { name: messages.navigation.about, href: '/about' },
-    { name: messages.navigation.experience, href: '/experience' },
-    { name: messages.navigation.blog, href: '/blogs' },
-    { name: messages.navigation.contact, href: '/contact' },
+    { name: messages.navigation.home, path: '/' },
+    { name: messages.navigation.about, path: '/about' },
+    { name: messages.navigation.experience, path: '/experience' },
+    { name: messages.navigation.blog, path: '/blogs' },
+    { name: messages.navigation.contact, path: '/contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-blue-900 dark:text-blue-400">
+        <Link href={buildLocalizedPath(locale, '/')} className="text-2xl font-bold text-blue-900 dark:text-blue-400">
           {messages.brand}
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium transition-colors ${
-                normalizedPath === item.href
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const href = buildLocalizedPath(locale, item.path);
+            return (
+              <Link
+                key={item.path}
+                href={href}
+                className={`text-sm font-medium transition-colors ${
+                  normalizedPath === item.path
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400'
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-4">
@@ -65,13 +69,4 @@ export function Header({ locale, messages }: HeaderProps) {
       </nav>
     </header>
   );
-}
-
-function normalizePath(pathname: string | null, locale: Locale) {
-  if (!pathname) {
-    return '/';
-  }
-
-  const withoutLocale = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), '') || '/';
-  return withoutLocale === '' ? '/' : withoutLocale;
 }

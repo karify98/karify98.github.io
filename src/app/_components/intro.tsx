@@ -2,12 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/locales";
+import { buildLocalizedPath } from "@/lib/paths";
 
 type IntroProps = {
   messages: Dictionary["intro"];
+  locale: Locale;
 };
 
-export function Intro({ messages }: IntroProps) {
+export function Intro({ messages, locale }: IntroProps) {
   return (
     <section className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4">
@@ -21,13 +24,13 @@ export function Intro({ messages }: IntroProps) {
             <p className="text-lg text-gray-500 dark:text-gray-400">{messages.description}</p>
             <div className="flex gap-4">
               <Link
-                href="/blogs"
+                href={buildLocalizedPath(locale, "/blogs")}
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 {messages.ctas.blog}
               </Link>
               <Link
-                href="/experience"
+                href={buildLocalizedPath(locale, "/experience")}
                 className="px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
                 {messages.ctas.work}

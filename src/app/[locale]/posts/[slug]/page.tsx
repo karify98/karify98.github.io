@@ -7,6 +7,7 @@ import { PostHeader } from "@/app/_components/post-header";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { getDictionary } from "@/lib/dictionaries";
 import { DEFAULT_LOCALE, LOCALES, type Locale, isLocale } from "@/lib/locales";
+import markdownToHtml from "@/lib/markdownToHtml";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -16,6 +17,8 @@ export default async function Post(props: Params) {
   if (!post) {
     return notFound();
   }
+
+  const contentHtml = await markdownToHtml(post.content || "");
 
   return (
     <main>
@@ -28,7 +31,7 @@ export default async function Post(props: Params) {
             date={post.date}
             author={post.author}
           />
-          <PostBody content={post.content || ""} />
+          <PostBody contentHtml={contentHtml} />
         </article>
       </Container>
     </main>
@@ -64,14 +67,16 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const slugs = new Set<string>();
+  const params: Array<{ locale: Locale; slug: string }> = [];
 
   for (const locale of LOCALES) {
     const posts = getAllPosts(locale);
-    posts.forEach((post) => slugs.add(post.slug));
+    posts.forEach((post) => {
+      params.push({ locale, slug: post.slug });
+    });
   }
 
-  return Array.from(slugs).map((slug) => ({ slug }));
+  return params;
 }
 
 function resolveLocale(localeParam: string | undefined): Locale {

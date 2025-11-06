@@ -1,6 +1,8 @@
 import CoverImage from "@/app/_components/cover-image";
 import Link from "next/link";
 import DateFormatter from "./date-formatter";
+import type { Locale } from "@/lib/locales";
+import { buildLocalizedPath } from "@/lib/paths";
 
 type Props = {
   title: string;
@@ -8,6 +10,7 @@ type Props = {
   date: string;
   excerpt: string;
   slug: string;
+  locale: Locale;
 };
 
 export function HeroPost({
@@ -16,15 +19,18 @@ export function HeroPost({
   date,
   excerpt,
   slug,
+  locale,
 }: Props) {
+  const postHref = buildLocalizedPath(locale, `/posts/${slug}`);
+
   return (
     <article className="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
       <div className="relative aspect-video">
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <CoverImage title={title} src={coverImage} slug={slug} locale={locale} />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2">
-          <Link href={`/posts/${slug}`} className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href={postHref} className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             {title}
           </Link>
         </h3>

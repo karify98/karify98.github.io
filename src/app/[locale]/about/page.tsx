@@ -2,11 +2,15 @@ import Container from "@/app/_components/container";
 import Image from "next/image";
 
 import { getDictionary } from "@/lib/dictionaries";
-import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
+import { DEFAULT_LOCALE, LOCALES, type Locale, isLocale } from "@/lib/locales";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
 
 export default async function AboutPage(props: PageProps) {
   const params = await props.params;
