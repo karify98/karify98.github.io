@@ -1,11 +1,13 @@
 import { Post } from "@/interfaces/post";
 import { PostPreview } from "./post-preview";
+import { DEFAULT_LOCALE, type Locale } from "@/lib/locales";
 
 type Props = {
   posts: Post[];
+  locale?: Locale;
 };
 
-export function MoreStories({ posts }: Props) {
+export function MoreStories({ posts, locale = DEFAULT_LOCALE }: Props) {
   return (
     <section className="mb-20">
       <h2 className="mb-8 text-3xl font-bold tracking-tight">
@@ -21,6 +23,7 @@ export function MoreStories({ posts }: Props) {
             author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
+            locale={locale}
           />
         ))}
       </div>

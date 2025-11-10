@@ -2,11 +2,15 @@ import Container from "@/app/_components/container";
 import { HeroPost } from "@/app/_components/hero-post";
 import { getAllPosts } from "@/lib/api";
 import { getDictionary } from "@/lib/dictionaries";
-import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
+import { DEFAULT_LOCALE, LOCALES, type Locale, isLocale } from "@/lib/locales";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
 
 export default async function BlogsPage(props: PageProps) {
   const params = await props.params;
@@ -34,6 +38,7 @@ export default async function BlogsPage(props: PageProps) {
                 date={post.date}
                 slug={post.slug}
                 excerpt={post.excerpt}
+                locale={locale}
               />
             ))}
           </div>
