@@ -1,14 +1,17 @@
 import { Header } from "@/app/_components/header";
+import { getDictionary } from "@/lib/dictionaries";
+import { DEFAULT_LOCALE } from "@/lib/locales";
 
-export default function ExperienceLayout({
+export default async function ExperienceLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const dictionary = await getDictionary(DEFAULT_LOCALE);
   return (
     <>
-      <Header />
+      <Header locale={DEFAULT_LOCALE} messages={dictionary.header} />
       {children}
     </>
   );
-} 
+}
