@@ -9,9 +9,20 @@ type Props = {
   coverImage: string;
   date: string;
   author: Author;
+  hashtags?: string[];
 };
 
-export function PostHeader({ title, coverImage, date, author }: Props) {
+export function PostHeader({
+  title,
+  coverImage,
+  date,
+  author,
+  hashtags = [],
+}: Props) {
+  const uniqueHashtags = Array.from(new Set(hashtags)).filter(
+    (tag) => tag.length > 0
+  );
+
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -28,6 +39,18 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
         <div className="mb-6 text-lg">
           <DateFormatter dateString={date} />
         </div>
+        {uniqueHashtags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {uniqueHashtags.map((tag) => (
+              <span
+                key={tag}
+                className="text-sm font-medium text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 px-3 py-1 rounded-full"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

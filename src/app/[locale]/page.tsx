@@ -38,6 +38,7 @@ export default async function Index(props: PageProps) {
                   date={post.date}
                   slug={post.slug}
                   excerpt={post.excerpt}
+                  hashtags={post.hashtags}
                   locale={locale}
                 />
               ))}

@@ -37,6 +37,11 @@ export type Dictionary = {
   blogs: {
     title: string;
     description: string;
+    searchPlaceholder: string;
+    searchLabel: string;
+    filterLabel: string;
+    clearFilter: string;
+    noResults: string;
   };
   footer: {
     thankYou: string;
@@ -117,6 +122,11 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: "Blog Posts",
       description:
         "Thoughts, experiences, and technical insights from my journey in software development.",
+      searchPlaceholder: "Search by hashtag (e.g. #ai)",
+      searchLabel: "Search hashtags",
+      filterLabel: "Popular hashtags",
+      clearFilter: "Clear filter",
+      noResults: "No posts found for this hashtag.",
     },
     footer: {
       thankYou: "Thanks for visiting my digital space ✨",
@@ -292,6 +302,11 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: "Bài viết trên blog",
       description:
         "Những suy nghĩ, trải nghiệm và góc nhìn kỹ thuật trong hành trình làm phần mềm của mình.",
+      searchPlaceholder: "Tìm bài viết bằng hashtag (ví dụ: #ai)",
+      searchLabel: "Tìm hashtag",
+      filterLabel: "Hashtag phổ biến",
+      clearFilter: "Xóa bộ lọc",
+      noResults: "Không có bài viết nào cho hashtag này.",
     },
     footer: {
       thankYou: "Cảm ơn bạn đã ghé thăm góc nhỏ của mình ✨",
