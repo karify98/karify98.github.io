@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -17,7 +18,13 @@ type LanguageSwitcherProps = {
 
 export function LanguageSwitcher({ currentLocale, labels }: LanguageSwitcherProps) {
   const pathname = usePathname();
-  const pathWithoutLocale = stripLocaleFromPath(pathname ?? '/');
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  const pathWithoutLocale = isHydrated ? stripLocaleFromPath(pathname ?? '/') : '/';
 
   return (
     <div className="flex items-center gap-2" aria-label={labels.label}>

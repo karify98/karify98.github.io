@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -15,7 +16,13 @@ type HeaderProps = {
 
 export function Header({ locale, messages }: HeaderProps) {
   const pathname = usePathname();
-  const normalizedPath = stripLocaleFromPath(pathname ?? '/');
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  const normalizedPath = isHydrated ? stripLocaleFromPath(pathname ?? '/') : null;
 
   const navigation = [
     { name: messages.navigation.home, path: '/' },

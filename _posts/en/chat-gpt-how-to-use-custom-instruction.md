@@ -8,6 +8,10 @@ author:
   picture: "/images/profile.jpg"
 ogImage:
   url: "/assets/blog/chat-gpt-how-to-use-custom-instruction/cover.jpeg"
+hashtags:
+  - chatgpt
+  - ai
+  - productivity
 ---
 
 ## What Are Custom Instructions — and Why Should You Care?

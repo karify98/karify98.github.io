@@ -8,6 +8,10 @@ author:
   picture: "/images/profile.jpg"
 ogImage:
   url: "/assets/blog/chat-gpt-how-to-use-custom-instruction/cover.jpeg"
+hashtags:
+  - chatgpt
+  - ai
+  - nang-cao-hieu-qua
 ---
 
 ## Custom Instructions Là Gì Và Vì Sao Bạn Nên Quan Tâm?

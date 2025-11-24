@@ -1,5 +1,5 @@
 import Container from "@/app/_components/container";
-import { HeroPost } from "@/app/_components/hero-post";
+import { BlogPostsSection } from "@/app/_components/blog-posts-section";
 import { getAllPosts } from "@/lib/api";
 import { getDictionary } from "@/lib/dictionaries";
 import { DEFAULT_LOCALE, LOCALES, type Locale, isLocale } from "@/lib/locales";
@@ -29,19 +29,17 @@ export default async function BlogsPage(props: PageProps) {
             {dictionary.blogs.description}
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allPosts.map((post) => (
-              <HeroPost
-                key={post.slug}
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                slug={post.slug}
-                excerpt={post.excerpt}
-                locale={locale}
-              />
-            ))}
-          </div>
+          <BlogPostsSection
+            posts={allPosts}
+            locale={locale}
+            messages={{
+              searchLabel: dictionary.blogs.searchLabel,
+              searchPlaceholder: dictionary.blogs.searchPlaceholder,
+              filterLabel: dictionary.blogs.filterLabel,
+              clearFilter: dictionary.blogs.clearFilter,
+              noResults: dictionary.blogs.noResults,
+            }}
+          />
         </section>
       </Container>
     </main>

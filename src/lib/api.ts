@@ -65,5 +65,31 @@ function readPostForLocale(slug: string, locale: Locale): Post | null {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug, content } as Post;
+  const normalizedHashtags = normalizeHashtags(
+    (data as Record<string, unknown>).hashtags
+  );
+
+  return {
+    ...data,
+    hashtags: normalizedHashtags,
+    slug,
+    content,
+  } as Post;
+}
+
+function normalizeHashtags(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value
+      .map((tag) => String(tag).trim())
+      .filter((tag) => tag.length > 0);
+  }
+
+  if (typeof value === "string" && value.trim().length > 0) {
+    return value
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
+  }
+
+  return [];
 }

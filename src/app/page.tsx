@@ -52,6 +52,7 @@ export default async function RootPage() {
                       date={post.date}
                       slug={post.slug}
                       excerpt={post.excerpt}
+                      hashtags={post.hashtags}
                       locale={DEFAULT_LOCALE}
                     />
                   ))}

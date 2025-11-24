@@ -30,6 +30,7 @@ export default async function Post(props: Params) {
             coverImage={post.coverImage}
             date={post.date}
             author={post.author}
+            hashtags={post.hashtags}
           />
           <PostBody contentHtml={contentHtml} />
         </article>
