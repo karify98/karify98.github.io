@@ -11,7 +11,7 @@ ogImage:
 hashtags:
   - chatgpt
   - ai
-  - nang-cao-hieu-qua
+  - hieuquacongviec
 ---
 
 ## Custom Instructions Là Gì Và Vì Sao Bạn Nên Quan Tâm?
