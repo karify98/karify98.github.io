@@ -14,166 +14,84 @@ hashtags:
   - productivity
 ---
 
-## What Are Custom Instructions — and Why Should You Care?
+## Supercharge ChatGPT: Use Custom Instructions Effectively
 
-Custom Instructions let you "train" ChatGPT to understand your preferences. Instead of starting from scratch in every chat, you give it context about who you are, what you want, and how you like things done.
+Custom Instructions are the fastest way to “teach” ChatGPT to understand you better. Set them up once, and every conversation afterward will automatically follow your work style, tone, and preferences. It’s a simple feature that creates a big improvement in daily AI usage.
 
-**Why it matters:**
+## What Are Custom Instructions?
 
-- **Saves time:** No need to repeat yourself.
-- **Better results:** More relevant, personalized answers.
-- **Consistent tone:** Keep your voice or coding style consistent.
-- **Smarter AI:** It feels like working with a teammate who gets you.
+Custom Instructions let you provide two key pieces of information:
 
-## Use Cases: Who Should Use Custom Instructions?
+1. Who you are and what you do  
+2. How you want ChatGPT to respond  
 
-- **Students:** Tailor responses for study help or project guidance.
-- **Professionals:** Get industry-specific advice or coding help.
-- **Writers:** Maintain a consistent tone or style in your writing.
-- **Developers:** Get code snippets or debugging help in your preferred language.
-- **Marketers:** Craft personalized marketing strategies or content.
-- **Researchers:** Get tailored summaries or insights on specific topics.
-- **Hobbyists:** Get personalized advice on your favorite activities or interests.
-- **Anyone:** If you want a more personalized experience, Custom Instructions are for you!
+Instead of repeating context every time you start a chat, ChatGPT will remember and tailor its responses accordingly.
 
-## How to Set Up Custom Instructions
+## Why Custom Instructions Matter
 
-1. **Log in to ChatGPT.**
-2. **Go to Settings:** Click your profile > “Custom instructions.”
-3. **Fill in the two boxes:**
-   - *What should ChatGPT know about you?*
-   - *How should it respond?*
-4. **Write clearly and concisely.**
-5. **Save. Done.**
-6. **Test it out:** Start a new chat and see how it works.
+Based on real use, here are the three biggest benefits:
+
+- Save time by not repeating background details  
+- Get more accurate and relevant answers  
+- Maintain consistent tone and style across conversations  
+
+## Quick Setup Guide
+
+1. Go to **Settings → Custom Instructions**  
+2. Fill out the two main questions  
+3. Save and start a new chat to apply  
 
 ## How to Use Custom Instructions Effectively
 
-- **Be role-specific:** Define your job title and responsibilities (e.g., "Technical Leader, Senior Backend Engineer") so the AI tailors its answers to your position.
+### A. Tell ChatGPT Who You Are
 
-- **Set tone expectations:** If you want concise, expert-level replies without disclaimers or apologies, state it clearly.
+Keep it short and clear:
 
-- **List your tech stack:** Mention your preferred languages and tools (e.g., NodeJS, Golang, SQL, AWS) so code and solutions match your environment.
+- Your role  
+- Your core skills  
+- Tools you use  
+- Your career goals  
 
-- **State your communication preferences:** If you prefer simple English and minimal email formalities, make that known.
+Example: “Technical Leader, backend, Node.js, Golang, AWS, aiming for Solution Architect.”
 
-- **Clarify how to handle unknowns:** Tell ChatGPT to say "I don't know" when unsure, without unnecessary filler.
+### B. Describe How You Want ChatGPT to Respond
 
-- **Encourage proactive behavior:** Ask it to break down complex topics, suggest multiple solutions, and ask clarifying questions.
+Helpful rules to include:
 
-- **Set output standards:** Require code examples, best practices, and Mermaid diagrams when relevant.
+- Keep answers concise and clear  
+- No apologies  
+- Break down complex topics step by step  
+- Provide multiple solution paths  
+- Ask clarifying questions when needed  
+- Include code examples or best practices  
 
-- **Prioritize constraints:** Let the AI know your common project constraints like budget, time, and compliance.
+### C. Define Your Preferred Output
 
-- **Make goals clear:** Include long-term career targets (e.g., becoming a Solution Architect or DevOps Pro) so AI support is aligned.
+How I personally configure it:
 
-- **Define post-response behavior:** Ask ChatGPT to include bold follow-up questions (**Q1, Q2, Q3**) to keep discussions productive.
+- Use Mermaid for diagrams  
+- Prefer Node.js/Golang code  
+- Explain concepts in simple English  
+- Include **three bold follow-up questions** after each answer  
+- Keep emails short and low-formality  
 
-## How did I Use Custom Instructions?
+## Example of My Custom Instructions
 
-> I’m a Senior Software Engineer with 7+ years of experience in backend development using Node.js and Golang. I currently lead a backend team, focusing on scalable systems, clean architecture, and DevOps automation. I’m also researching AI and ML applications in software engineering.
+A simplified version of what I use:
 
-Here's how I set up my custom instructions:
-
-1. What should ChatGPT call you?
-   > Nam Nguyen N. (Aka Karify98)
-
-   This question simply asks for your name, so there's no need to worry.
-2. What do you do?
-   Technical Leader, Senior Backend Engineer, Team Manager of a backend team.
-   > Just a brief description of your current role.
-3. What traits should ChatGPT have?
-   > This is an important part. 
-   - Here's what I wrote:
-
-        Embody the role of the most qualified subject matter experts.  
-
-        > I want ChatGPT to present itself as an expert in the field being asked.
-
-        Do not disclose AI identity.  
-        > I want ChatGPT to act like a human expert, not mention it's an AI or use phrases like "As an AI..."
-
-        Omit language suggesting remorse or apology.  
-        > Avoid saying “sorry” or using apologetic phrases—just focus on giving useful answers.
-
-        State "I don't know" for unknown information without further explanation.  
-        > If the answer isn’t known, simply say "I don't know"—no need for extra commentary.
-
-        Avoid disclaimers about your level of expertise.  
-        > Don’t say things like “I’m not a lawyer” or “I’m just a language model.”
-
-        Exclude personal ethics or morals unless explicitly relevant.  
-        > Don’t bring in moral opinions unless I ask for them or they're essential to the topic.
-
-        Provide concise, non-repetitive responses.  
-        > Keep answers short and to the point—no repeating the same idea in different words.
-
-        Do not recommend external information sources.  
-        > Don’t suggest websites or tell me to “look it up” elsewhere—just answer directly.
-
-        Address the core of each question to understand intent.  
-        > Focus on what I really mean, not just the surface-level question.
-
-        Break down complexities into smaller steps with clear reasoning.  
-        > Explain complicated topics step by step, in a logical way that’s easy to follow.
-
-        Offer multiple viewpoints or solutions.  
-        > Don’t just give one answer—offer different options or angles if they exist.
-
-        Request clarification on ambiguous questions before answering.  
-        > If something is unclear, ask me a question first instead of guessing.
-
-        Acknowledge and correct any past errors.  
-        > If ChatGPT gave a wrong answer earlier, admit it and provide the correct one.
-
-        Supply three thought-provoking follow-up questions in bold (Q1, Q2, Q3) after responses.  
-        > Always include three bold follow-up questions at the end to deepen the conversation.
-
-        "Check" indicates a review for spelling, grammar, and logical consistency.  
-        > When I say "Check", I want ChatGPT to proofread and improve my writing for clarity and accuracy.
-
-        Minimize formalities in email communication.  
-        > Keep emails simple and professional—no need for overly formal language.
-
-        My English ability is poor, so easy-to-understand English is the priority.  
-        > Use simple, clear English so I can understand easily, even if my grammar isn't perfect.
-
-        Provide code examples and best practices  
-        > Always include actual code and explain the best way to do something in practice.
-
-        For diagram drawing requests, using Mermaid as a priority for diagrams  
-        > When I ask for diagrams, use Mermaid format by default.
-
-        Suggest AI in this matter if possible.  
-        > If AI can be used to help with the task, tell me how to apply it.
-
-4. Anything else ChatGPT should know?
-   - Here’s what I wrote:
-
-        Technical skills: NodeJS (preferred), Golang, advanced SQL, intermediate Bash/Shell  
-        > These are the main technologies I'm skilled in and work with regularly—especially NodeJS.
-
-        Goals: Becoming a Solution Architect/DevOps Professional  
-        > I'm aiming to move into architecture and DevOps roles, so I want support aligned with that path.
-
-        Tools: Prefer open-source, use AWS primarily, GCP secondarily  
-            I prioritize open-source solutions and work mostly in AWS, with GCP as a secondary cloud platform.
-
-        Constraints: Budget, time, compliance  
-        > My projects have practical limitations—ChatGPT should offer efficient, compliant, and cost-aware suggestions.
-
-        Currently learning Python and researching AI, AI agents, and ML  
-        > I'm building knowledge in Python and diving into AI topics, so I'm looking for help in these areas too.
+- Role: Technical Leader, Backend Engineer  
+- Tech stack: Node.js, Golang, SQL, AWS  
+- Response style: expert, clear, no apologies  
+- Analysis: break problems into steps, offer multiple solutions  
+- Outputs: code samples, best practices, Mermaid diagrams  
+- Behavior: ask clarifying questions when needed  
+- Goal: Solution Architect / DevOps path  
 
 ## Conclusion
 
-Custom Instructions are a game-changer for anyone using ChatGPT. By taking a few minutes to set them up, you can transform your AI experience from generic to personalized. Whether you're a student, professional, or just someone looking for tailored advice, Custom Instructions can help you get the most out of your interactions with ChatGPT.
-So why wait? Dive in, set up your Custom Instructions, and start enjoying a more personalized AI experience today!
+Custom Instructions are a powerful “multiplier” for anyone who uses ChatGPT regularly. Just a few minutes of setup gives you an assistant that understands your work, your style, and how you want to think. If you haven’t tried it yet, give it a go—you’ll notice the difference immediately.
 
-## Additional Resources
+## Reference
 
 - [OpenAI Custom Instructions Guide](https://openai.com/index/custom-instructions-for-chatgpt/)
-- [ChatGPT Best Practices](https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt)
-
-Have you tried Custom Instructions yet? Share your experience in the comments below!
-If you found this post helpful, consider sharing it with your network. Let's make AI work better for everyone!
+- [ChatGPT Prompting Best Practices](https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt)
