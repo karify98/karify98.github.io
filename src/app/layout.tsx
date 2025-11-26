@@ -45,6 +45,11 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "4fc255415bfb4f10a28590a6ce3778d7"}'
+        ></script>
       </head>
       <body
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
