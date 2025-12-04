@@ -30,9 +30,16 @@ export function HeroPost({
 
   return (
     <article className="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-      <div className="relative aspect-video">
-        <CoverImage title={title} src={coverImage} slug={slug} locale={locale} />
-      </div>
+      <CoverImage
+        title={title}
+        src={coverImage}
+        slug={slug}
+        locale={locale}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        containerClassName="aspect-video"
+        className="object-cover"
+      />
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2">
           <Link href={postHref} className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
