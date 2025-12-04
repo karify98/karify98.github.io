@@ -1,0 +1,62 @@
+name: Spell Check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
+      - name: Run cspell with reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPORTER="github-pr-review"
+          if [ "${{ github.event.pull_request.head.repo.fork }}" = "true" ]; then
+            REPORTER="github-pr-check"
+          fi
+
+          # Always provide reviewdog with a valid XML report, even if cspell exits early.
+          REPORT_PATH="cspell-report.xml"
+          TEMP_REPORT_PATH="cspell-report.tmp.xml"
+          EMPTY_REPORT_CONTENT='<checkstyle version="4.3"></checkstyle>'
+
+          pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*" \
+            --reporter checkstyle > "${TEMP_REPORT_PATH}" || true
+
+          if [ -s "${TEMP_REPORT_PATH}" ] && grep -q "</checkstyle>" "${TEMP_REPORT_PATH}"; then
+            mv "${TEMP_REPORT_PATH}" "${REPORT_PATH}"
+          else
+            echo "${EMPTY_REPORT_CONTENT}" > "${REPORT_PATH}"
+            rm -f "${TEMP_REPORT_PATH}"
+          fi
+
+          reviewdog -f=checkstyle -name="cspell" -reporter="${REPORTER}" -level=warning -fail-level=error < cspell-report.xml

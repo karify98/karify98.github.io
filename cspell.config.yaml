@@ -1,0 +1,44 @@
+version: "0.2"
+language: "en,vi"
+extendDictionaryPath: []
+ignorePaths:
+  - .git
+  - .next
+  - node_modules
+  - public
+  - out
+  - pnpm-lock.yaml
+  - package-lock.json
+  - **/*.png
+  - **/*.jpg
+  - **/*.jpeg
+  - **/*.svg
+  - **/*.gif
+  - **/*.webp
+  - **/*.ico
+  - '**/*.lock'
+dictionaryDefinitions:
+  - name: workspace
+    path: ./cspell-workspace.txt
+    addWords: true
+    description: Custom workspace terms for English and Vietnamese content
+    scope: workspace
+    language: en,vi
+dictionaries:
+  - workspace
+words:
+  - pnpm
+  - tailwindcss
+  - vercel
+  - nextjs
+  - karify
+enableFiletypes:
+  - .env
+  - .ts
+  - .tsx
+  - .js
+  - .jsx
+  - .json
+  - .md
+  - .yaml
+  - .yml

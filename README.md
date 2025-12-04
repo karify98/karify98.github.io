@@ -22,3 +22,10 @@ I'm a software engineer. This is my blog. I write about my experiences and thoug
 - `pnpm` is the preferred package manager. When registry access is blocked, fall back to `npm` commands; the project scripts will honor the existing `node_modules` without forcing new downloads.
 - `npm run lint` now wraps `next lint` and automatically falls back to `tsc --noEmit` when ESLint packages cannot be fetched (for example, in air-gapped environments). A globally installed ESLint is used when available.
 - `npm run build` executes the standard Next.js build; run it after lint/type checking to validate the production bundle.
+
+## 🔍 Spell check locally
+
+- Install dependencies: `pnpm install`
+- Run the spell checker from the project root: `pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*"`
+  - The command matches the CI configuration and emits findings in the terminal.
+  - Use this before opening a PR to catch typos in code, docs, and posts.
