@@ -112,6 +112,8 @@ const Script = memo(() => (
   />
 ));
 
+Script.displayName = "ThemeSwitcherScript";
+
 /**
  * This component which applies classes and transitions.
  */
