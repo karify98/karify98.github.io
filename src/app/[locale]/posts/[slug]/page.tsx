@@ -18,7 +18,9 @@ export default async function Post(props: Params) {
     return notFound();
   }
 
-  const contentHtml = await markdownToHtml(post.content || "");
+  const { html: contentHtml, headings } = await markdownToHtml(
+    post.content || "",
+  );
 
   return (
     <main>
@@ -32,7 +34,7 @@ export default async function Post(props: Params) {
             author={post.author}
             hashtags={post.hashtags}
           />
-          <PostBody contentHtml={contentHtml} />
+          <PostBody contentHtml={contentHtml} headings={headings} />
         </article>
       </Container>
     </main>
