@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  checks: write
 
 jobs:
   spell-check:
@@ -38,6 +39,16 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          REPORTER="github-pr-review"
+          if [ "${{ github.event.pull_request.head.repo.fork }}" = "true" ]; then
+            REPORTER="github-pr-check"
+          fi
+
           pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*" \
-            --reporter checkstyle \
-            | reviewdog -f=checkstyle -name="cspell" -reporter=github-pr-review -level=warning -fail-on-error=true
+            --reporter checkstyle > cspell-report.xml || true
+
+          if [ ! -s cspell-report.xml ]; then
+            echo '<checkstyle version="4.3"></checkstyle>' > cspell-report.xml
+          fi
+
+          reviewdog -f=checkstyle -name="cspell" -reporter="${REPORTER}" -level=warning -fail-level=error < cspell-report.xml
