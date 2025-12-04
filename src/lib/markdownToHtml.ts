@@ -71,7 +71,7 @@ export default async function markdownToHtml(markdown: string) {
 
       visitNode(tree);
     })
-    .use(html)
+    .use(html, { sanitize: false })
     .process(markdown);
 
   return { html: result.toString(), headings };
