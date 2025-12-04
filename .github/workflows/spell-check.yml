@@ -44,14 +44,19 @@ jobs:
             REPORTER="github-pr-check"
           fi
 
-          # Seed an empty report so reviewdog always receives valid XML even if cspell exits early.
-          echo '<checkstyle version="4.3"></checkstyle>' > cspell-report.xml
+          # Always provide reviewdog with a valid XML report, even if cspell exits early.
+          REPORT_PATH="cspell-report.xml"
+          TEMP_REPORT_PATH="cspell-report.tmp.xml"
+          EMPTY_REPORT_CONTENT='<checkstyle version="4.3"></checkstyle>'
 
           pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*" \
-            --reporter checkstyle > cspell-report.xml || true
+            --reporter checkstyle > "${TEMP_REPORT_PATH}" || true
 
-          if [ ! -s cspell-report.xml ]; then
-            echo '<checkstyle version="4.3"></checkstyle>' > cspell-report.xml
+          if [ -s "${TEMP_REPORT_PATH}" ] && grep -q "</checkstyle>" "${TEMP_REPORT_PATH}"; then
+            mv "${TEMP_REPORT_PATH}" "${REPORT_PATH}"
+          else
+            echo "${EMPTY_REPORT_CONTENT}" > "${REPORT_PATH}"
+            rm -f "${TEMP_REPORT_PATH}"
           fi
 
           reviewdog -f=checkstyle -name="cspell" -reporter="${REPORTER}" -level=warning -fail-level=error < cspell-report.xml
