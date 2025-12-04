@@ -29,11 +29,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile=false
 
-      - name: Run cspell with reviewdog
-        uses: reviewdog/action-cspell@v1
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          level: warning
-          cspell_command: "pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml '**/*'"
-          fail_on_error: true
+          reviewdog_version: latest
+
+      - name: Run cspell with reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*" \
+            --reporter checkstyle \
+            | reviewdog -f=checkstyle -name="cspell" -reporter=github-pr-review -level=warning -fail-on-error=true
