@@ -1,0 +1,8 @@
+karify98
+tailwind
+TypeScript
+JavaScript
+Vercel
+Nextjs
+NextJS
+pnpm
