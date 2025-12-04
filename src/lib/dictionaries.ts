@@ -491,7 +491,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           label: "Điện thoại",
-          value: "xxx",
+          value: "keep-private",
           href: "tel:xxx",
           helper: "Cuộc gọi nhanh hoặc follow-up. Hãy nhắn trước để mình sắp xếp thời gian phù hợp.",
         },
