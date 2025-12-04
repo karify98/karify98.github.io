@@ -1,10 +1,7 @@
-import { Inter } from "next/font/google";
 import cn from "classnames";
 import type { ReactNode } from "react";
 
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -52,7 +49,7 @@ export default function RootLayout({
         ></script>
       </head>
       <body
-        className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
+        className={cn("font-sans", "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
         <div className="min-h-screen">{children}</div>

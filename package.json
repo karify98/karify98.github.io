@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "lint": "next lint",
+    "lint": "node ./scripts/run-lint.js",
     "start": "next start"
   },
   "dependencies": {

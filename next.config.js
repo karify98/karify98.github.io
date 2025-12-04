@@ -4,6 +4,9 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     // Optional: Add basePath if your site is not at the root of the domain
     // basePath: '/your-repo-name',
 };
