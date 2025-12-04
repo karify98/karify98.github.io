@@ -77,6 +77,17 @@ export type Dictionary = {
     recognitionIntro: string;
     recognitions: string[];
   };
+  contact: {
+    title: string;
+    subtitle: string;
+    availability: string;
+    methods: Array<{
+      label: string;
+      value: string;
+      href: string;
+      helper: string;
+    }>;
+  };
   posts: {
     metadataSuffix: string;
   };
@@ -259,6 +270,33 @@ const dictionaries: Record<Locale, Dictionary> = {
         "🏆 Best Associate Team Manager",
       ],
     },
+    contact: {
+      title: "Let's build something meaningful",
+      subtitle:
+        "Open to collaborations, consulting, or a friendly chat about backend, automation, and scalable systems.",
+      availability:
+        "I typically respond within 24–48 hours. Email is the fastest way to get a detailed reply.",
+      methods: [
+        {
+          label: "Email",
+          value: "nnnam048@gmail.com",
+          href: "mailto:nnnam048@gmail.com",
+          helper: "Best for proposals, collaboration ideas, or sharing product context.",
+        },
+        {
+          label: "Phone",
+          value: "xxx",
+          href: "tel:xxx",
+          helper: "Quick syncs or follow-ups. Please send a message first so I can arrange a time.",
+        },
+        {
+          label: "GitHub",
+          value: "karify98",
+          href: "https://github.com/karify98",
+          helper: "Explore my projects, open an issue, or ping me via discussions.",
+        },
+      ],
+    },
     posts: {
       metadataSuffix: `Next.js Blog Example with ${CMS_NAME}`,
     },
@@ -436,6 +474,33 @@ const dictionaries: Record<Locale, Dictionary> = {
         "🏆 Nhân viên xuất sắc",
         "🏆 Technical Lead tiêu biểu",
         "🏆 Associate Team Manager xuất sắc",
+      ],
+    },
+    contact: {
+      title: "Kết nối và hợp tác",
+      subtitle:
+        "Mình sẵn sàng trao đổi về dự án backend, tự động hóa, DevOps hoặc đơn giản là trò chuyện chia sẻ kinh nghiệm.",
+      availability:
+        "Thường phản hồi trong 24–48 giờ. Email là kênh nhanh nhất để nhận câu trả lời chi tiết.",
+      methods: [
+        {
+          label: "Email",
+          value: "nnnam048@gmail.com",
+          href: "mailto:nnnam048@gmail.com",
+          helper: "Phù hợp cho đề xuất hợp tác, chia sẻ bối cảnh sản phẩm hoặc trao đổi chuyên môn.",
+        },
+        {
+          label: "Điện thoại",
+          value: "keep-private",
+          href: "tel:xxx",
+          helper: "Nothing",
+        },
+        {
+          label: "GitHub",
+          value: "karify98",
+          href: "https://github.com/karify98",
+          helper: "Xem project, mở issue hoặc ping mình qua discussions.",
+        },
       ],
     },
     posts: {
