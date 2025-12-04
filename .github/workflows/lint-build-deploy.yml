@@ -57,6 +57,7 @@ jobs:
         run: pnpm install --frozen-lockfile=false
 
       - name: Configure Pages
+        if: github.event_name == 'push'
         uses: actions/configure-pages@v4
 
       - name: Build
