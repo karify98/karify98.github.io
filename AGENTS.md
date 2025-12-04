@@ -3,6 +3,7 @@
 ## Workflow
 - Use `pnpm` for all dependency, lint, and build commands.
 - Run `pnpm lint` and `pnpm build` before committing changes.
+- Run `pnpm dlx cspell lint --no-progress --no-summary --config ./cspell.config.yaml "**/*"` before committing to keep spelling issues out of PRs.
 - Keep commit messages and any in-code comments in English.
 
 ## Code Quality
